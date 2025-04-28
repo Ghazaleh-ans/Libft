@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gansari <gansari@student.42.fr>            +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 10:57:24 by gansari           #+#    #+#             */
-/*   Updated: 2024/11/14 12:16:55 by gansari          ###   ########.fr       */
+/*   Updated: 2024/12/04 00:34:34 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	if (!substr)
 		return (NULL);
 	ft_strlcpy(substr, s + start, len + 1);
-	substr[len + 1] = '\0';
+	substr[len] = '\0';
 	return (substr);
 }
 /*
