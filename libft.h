@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 16:51:25 by gansari           #+#    #+#             */
-/*   Updated: 2025/01/02 14:25:20 by marvin           ###   ########.fr       */
+/*   Updated: 2025/05/23 18:34:01 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,20 @@ typedef struct s_snprintf_data
 	size_t	pos;
 }	t_snprintf_data;
 
+typedef struct s_printf
+{
+	int		fd;
+	int		width;
+	int		precision;
+	int		flags;
+}	t_printf;
+
 int		ft_isalnum(int c);
 int		ft_isalpha(int c);
 int		ft_isascii(int c);
 int		ft_isdigit(int c);
 int		ft_isprint(int c);
+int		ft_isspace(int c);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
 
@@ -88,6 +97,7 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*));
 char	**ft_split(char const *s, char c);
 int		ft_strcmp(char *s1, char *s2);
 char	*ft_strndup(const char *s, size_t n);
+size_t	ft_strcspn(const char *s, const char *reject);
 
 void	ft_putchar_fd(char c, int fd);
 void	ft_putstr_fd(char *s, int fd);
@@ -124,7 +134,23 @@ void	ft_putchar_snprintf(char c, t_snprintf_data *data);
 void	ft_putstr_snprintf(char *s, t_snprintf_data *data);
 void	ft_putnbr_snprintf(int nb, t_snprintf_data *data);
 void	ft_putunsignednbr_snprintf(unsigned int nb, t_snprintf_data *data);
-void	ft_putnbr_base_snprintf(unsigned int nbr, char *base, t_snprintf_data *data);
-void	ft_putnbr_base_ptr_snprintf(unsigned long nbr, char *base, t_snprintf_data *data);
+void	ft_putnbr_base_snprintf(unsigned int nbr, char *base,
+			t_snprintf_data *data);
+void	ft_putnbr_base_ptr_snprintf(unsigned long nbr, char *base,
+			t_snprintf_data *data);
 void	ft_putptr_snprintf(void *ptr, t_snprintf_data *data);
+
+int		ft_fprintf(int fd, const char *format, ...);
+int		write_char_fd(char c, int fd);
+int		write_str_fd(char *s, int fd);
+int		write_nbr_fd(int n, int fd);
+int		print_char(t_printf *data, int c);
+int		print_string(t_printf *data, char *str);
+int		print_number(t_printf *data, int num);
+int		write_ptr_fd(void *ptr, int fd);
+int		print_pointer(t_printf *data, void *ptr);
+int		print_hex(t_printf *data, unsigned int num, int uppercase);
+int		write_hex_fd(unsigned long n, int uppercase, int fd);
+int		write_hex_digit(int digit, int uppercase, int fd);
+
 #endif

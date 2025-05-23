@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gansari <gansari@student.42berlin.de>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 17:48:35 by gansari           #+#    #+#             */
-/*   Updated: 2025/05/23 18:33:51 by gansari          ###   ########.fr       */
+/*   Created: 2025/05/13 16:53:02 by gansari           #+#    #+#             */
+/*   Updated: 2025/05/13 16:53:49 by gansari          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_isspace(int c)
 {
-	while (*s)
-	{
-		ft_putchar_fd(*s, fd);
-		s++;
-	}
+	return (c == 32 || (c >= 9 && c <= 13));
 }
-/*
-int	main(void)
-{
-	char	*str = "Ghazaleh";
-
-	ft_putstr_fd(str, 1);
-	return (0);
-}
-*/
